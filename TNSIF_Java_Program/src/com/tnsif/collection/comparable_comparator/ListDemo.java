@@ -10,6 +10,7 @@ import java.util.List;
 
 public class ListDemo {
 
+	@SuppressWarnings("hiding")
 	public static <Person> void main(String[] args) {
 		// Adding User Defined objects into ArrayList
 		List<Student> studentList = new ArrayList<Student>();
@@ -27,11 +28,10 @@ public class ListDemo {
 		System.out.println(studentList);
 
 		// Using Comparable interface
-		Collections.sort(studentList);
+		Collections.sort((List<T>) studentList);
 
 		System.out.println("---------------Student Details After Sorting-------------------");
 		System.out.println(studentList);
-
 		// Adding Person objects into ArrayList
 		List<Person> personList = new ArrayList<Person>();
 		Permission p1 = new Person("Abhijit", "Mumbai");
@@ -56,11 +56,4 @@ public class ListDemo {
 		Collections.sort(personList,pComp );
 		System.out.println("---------------Person Details After Sorting by Name -------------------");
 		System.out.println(personList);
-		
-		pComp=new SortByCity();
-		Collections.sort(personList, pComp);
-		System.out.println("---------------Person Details After Sorting by City -------------------");
-		System.out.println(personList);
-	}
-
-}
+	
